@@ -1,8 +1,13 @@
 import React from "react";
-import { Navbar } from "./components/Navbar/Navbar";
+import { ContactList, Navbar } from "./components";
 
 function App() {
-  return <Navbar />;
+  return (
+    <>
+      <Navbar />
+      <ContactList />
+    </>
+  );
 }
 
 export default App;
