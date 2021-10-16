@@ -1,4 +1,3 @@
-import React, { MutableRefObject, useRef } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -7,56 +6,94 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Button,
+  useDisclosure,
   FormControl,
   FormLabel,
   Input,
-  Heading,
-} from "@chakra-ui/react";
+  FormErrorMessage,
+} from '@chakra-ui/react'
+import { Form, Formik } from 'formik'
+import React, { useState } from 'react'
+import { Radio, RadioGroup, Stack } from '@chakra-ui/react'
+import { InitialFormValues } from './formModal.types'
 
-const FormModal = (): JSX.Element => {
-  //   const { isOpen, onOpen, onClose } = useDisclosure();
+const initialFormValues: InitialFormValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNo: '',
+  tag: '',
+}
+export default function InitialFocus(): JSX.Element {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [formValues, setFormValues] =
+    useState<InitialFormValues>(initialFormValues)
 
-  //   const initialRef = useRef() as MutableRefObject<HTMLInputElement>;
-  //   const finalRef = useRef();
+  function submitHandler() {
+    console.log('clicked')
+  }
+
+  function changeHandler(e) {
+    console.log(e.name, e.value)
+  }
 
   return (
     <>
-      {/* <Button onClick={onOpen}>Open Modal</Button>
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
+      <Button color="#096ce6" size="md" onClick={onOpen}>
+        Add contact
+      </Button>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader>Add new contact.</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder="First name" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
+            <Formik
+              initialValues={{ name: 'Sasuke' }}
+              onSubmit={(values, actions) => {
+                setTimeout(() => {
+                  alert(JSON.stringify(values, null, 2))
+                  actions.setSubmitting(false)
+                }, 1000)
+              }}
+            >
+              {(props) => (
+                <Form>
+                  <Field name="name" validate={validateName}>
+                    {({ field, form }) => (
+                      <FormControl
+                        isInvalid={form.errors.name && form.touched.name}
+                      >
+                        <FormLabel htmlFor="name">First name</FormLabel>
+                        <Input {...field} id="name" placeholder="name" />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Button
+                    mt={4}
+                    colorScheme="teal"
+                    isLoading={props.isSubmitting}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              )}
+            </Formik>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
+            u
+            <Button colorScheme="blue" mr={3} onClick={submitHandler()}>
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
-      </Modal> */}
-      <Heading>This is a Modal</Heading>
+      </Modal>
     </>
-  );
-};
-
-export default FormModal;
+  )
+}

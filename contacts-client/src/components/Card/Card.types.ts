@@ -1,10 +1,10 @@
 export interface ICardPropsType {
-  name: String;
+  name: string;
   tag: "Home" | "Work" | "Other" ;
 }
 
 export interface IBadgeColor{
-  Home: String
-  Work: String
-  Other: String
+  Home: string
+  Work: string
+  Other: string
 }
