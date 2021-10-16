@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Heading } from "@chakra-ui/react";
-import { AddButton } from "../Button/Button";
+import { AddButton } from "../AddButton/AddButton";
 
 export const Navbar = (): JSX.Element => {
   return (
