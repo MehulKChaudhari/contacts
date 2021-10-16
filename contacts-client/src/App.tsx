@@ -1,7 +1,8 @@
 import React from "react";
+import { Navbar } from "./components/Navbar/Navbar";
 
-function App(): JSX.Element {
-  return <h1>Contacts</h1>;
+function App() {
+  return <Navbar />;
 }
 
 export default App;
