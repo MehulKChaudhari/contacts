@@ -24,7 +24,6 @@ const User = (): JSX.Element => {
         alignItems="center"
         alignSelf="center"
         pt={10}
-        width="100%"
       >
         <Box
           background="white"
@@ -32,9 +31,10 @@ const User = (): JSX.Element => {
           boxShadow="lg"
           p="6"
           rounded="md"
-          w={[500, 700]}
-          height={['100%', '500px']}
           alignContent="center"
+          w={[300, 700]}
+          height={['100%', '500px']}
+          overflow="hidden"
         >
           <Stack spacing={5}>
             <Flex>
