@@ -5,10 +5,5 @@
   "main": "index.js",
   "repository": "https://github.com/MehulKChaudhari/contacts.git",
   "author": "Mehul Kiran Chaudhari <chaudharimehul2001@gmail.com>",
-  "private": true,
-  "dependencies": {
-    "react-icons": "^4.3.1",
-    "react-router": "^6.0.0-beta.7",
-    "react-router-dom": "^6.0.0-beta.7"
-  }
+  "private": true
 }
