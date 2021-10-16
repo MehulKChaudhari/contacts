@@ -5,17 +5,10 @@ const mongoose = require('mongoose')
  * */
 const makeConnection = async () => {
   await mongoose
-    .connect(
-      process.env.NODE_ENV === 'development'
-        ? process.env.DB_LOCAL
-        : process.env.DB_ATLAS,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: true,
-        useCreateIndex: true,
-      }
-    )
+    .connect(process.env.DB_LOCAL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
     .then(() => {
       console.info(`[${process.env.NODE_ENV}]` + '📀 Connected to Database')
     })
