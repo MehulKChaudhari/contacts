@@ -6,10 +6,18 @@
   "repository": "https://github.com/MehulKChaudhari/contacts.git",
   "author": "Mehul Kiran Chaudhari <chaudharimehul2001@gmail.com>",
   "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node-dev src/index.js",
+    "build": "yarn tsc",
+    "format": "prettier --write src/**/*.js{,x}"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.11"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
   }
 }

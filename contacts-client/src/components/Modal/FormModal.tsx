@@ -12,7 +12,7 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 
 const FormModal = (): JSX.Element => {

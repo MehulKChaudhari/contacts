@@ -7,8 +7,8 @@ export const makeConnection = async () => {
   await mongoose
     .connect(
       process.env.NODE_ENV === 'development'
-        ? process.env.DB_LOCAL!
-        : process.env.DB_ATLAS!,
+        ? process.env.DB_LOCAL
+        : process.env.DB_ATLAS,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
