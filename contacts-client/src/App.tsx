@@ -1,6 +1,6 @@
 import React from "react";
 import { ContactList, Navbar } from "./components";
-import User from "./User";
+import User from "./pages/User";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<ContactList />} />
-        <Route path="/user/:userId" element={<User />} />
+        <Route path="/user" element={<User />} />
       </Routes>
     </>
   );

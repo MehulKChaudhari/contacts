@@ -3,7 +3,7 @@ import React from "react";
 
 export const AddButton = (): JSX.Element => {
   return (
-    <Button colorScheme="teal" size="md">
+    <Button color="#096ce6" size="md">
       Add contact
     </Button>
   );

@@ -1,26 +1,27 @@
-import { Box, Flex, Heading, HStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, HStack, Link } from "@chakra-ui/react";
 import React from "react";
 import { CardPropsType } from "./Card.types";
 import { FaRegUserCircle, FaArrowCircleRight } from "react-icons/fa";
 
 export const Card = ({ name, tag }: CardPropsType): JSX.Element => {
   return (
-    <Box
+    <Link
       borderRadius={"8px"}
       overflow={"hidden"}
       marginTop={"2rem"}
-      width={["90%", "80%"]}
+      width={["90%", "50%"]}
       alignSelf="center"
-      background="wheat"
+      background="white"
+      border={"1.5px solid #096ce6"}
       padding={["0.8rem", "1.5rem"]}
       alignItems={"center"}
+      _hover={{ shadow: "md" }}
+      href="/user"
     >
-      <HStack spacing={["4", '10']}>
+      <HStack justifyContent={"space-around"}>
         <Flex>
-          <FaRegUserCircle color="black" />
-        </Flex>
-        <Flex>
-          <Heading as="h3" size="md">
+          <FaRegUserCircle color="black" size="1.5rem" />
+          <Heading as="h3" size="md" ml={2}>
             {name}
           </Heading>
         </Flex>
@@ -30,9 +31,9 @@ export const Card = ({ name, tag }: CardPropsType): JSX.Element => {
           </Heading>
         </Flex>
         <Flex>
-          <FaArrowCircleRight />
+          <FaArrowCircleRight color="#096ce6" size="1.5rem" />
         </Flex>
       </HStack>
-    </Box>
+    </Link>
   );
 };

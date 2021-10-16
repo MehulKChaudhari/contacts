@@ -12,9 +12,9 @@ import {
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsFillPencilFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const User = (): JSX.Element => {
-    
   return (
     <>
       <Flex
@@ -22,19 +22,23 @@ const User = (): JSX.Element => {
         alignItems="center"
         alignSelf="center"
         pt={10}
+        width='100%'
       >
         <Box
-          background="#FCA5A5"
-          boxShadow="md"
+          background="white"
+          border={"1px solid #096ce6"}
+          boxShadow="lg"
           p="6"
           rounded="md"
-          width={["", "1000px"]}
-          height={["", "500px"]}
+          w={[500, 700]}
+          height={["100%", "500px"]}
           alignContent="center"
         >
           <Stack spacing={5}>
             <Flex>
-              <AiOutlineArrowLeft size="2rem" />
+              <Link to={"/"}>
+                <AiOutlineArrowLeft size="2rem" />
+              </Link>
             </Flex>
             <Flex>
               <Table variant="simple">
@@ -71,6 +75,14 @@ const User = (): JSX.Element => {
                       9184858281
                     </Td>
                   </Tr>
+                  <Tr>
+                    <Th outline="none" border="none">
+                      Tag:
+                    </Th>
+                    <Td outline="none" border="none">
+                      tag
+                    </Td>
+                  </Tr>
                 </Tbody>
               </Table>
             </Flex>
@@ -78,8 +90,8 @@ const User = (): JSX.Element => {
               <Button colorScheme="red" variant="outline">
                 Delete
               </Button>
-              <Button colorScheme="teal" variant="solid">
-                <BsFillPencilFill /> Edit
+              <Button color="#096ce6" variant="solid" size="lg">
+                <BsFillPencilFill style={{ marginRight: "0.5rem" }} /> Edit
               </Button>
             </Flex>
           </Stack>

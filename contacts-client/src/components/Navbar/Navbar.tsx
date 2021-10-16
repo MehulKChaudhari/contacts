@@ -5,12 +5,14 @@ import { AddButton } from "../AddButton/AddButton";
 export const Navbar = (): JSX.Element => {
   return (
     <Flex
-      background="black"
+      background="white"
+      borderBottom=" 1px solid #e8e7e9"
       width={"100%"}
       maxHeight={"60px"}
       minHeight={"60px"}
       alignItems={"center"}
       justifyContent={"center"}
+      boxShadow={"0 0.5rem 0 rgb(0 0 0 / 2%)"}
     >
       <Flex
         width={"100%"}
@@ -21,7 +23,7 @@ export const Navbar = (): JSX.Element => {
         justifyContent={"space-between"}
       >
         <Flex>
-          <Heading as="h1" size="xl" color="teal">
+          <Heading as="h1" size="lg" color="#262221" >
             Contacts
           </Heading>
         </Flex>
