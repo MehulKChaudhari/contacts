@@ -1,15 +1,14 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import cors from 'cors'
-import makeConnection from './db/mongodb'
+const express = require('express')
+const cors = require('cors')
+const makeConnection = require('./db/mongodb')
+
+require('dotenv/config')
 
 const app = express()
 app.use(express.json())
-app.use(cors(corsOptions))
+app.use(cors())
 
-dotenv.config()
-
-makeConnection()
+// makeConnection()
 /**
  * test route
  */
@@ -18,6 +17,6 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-  log.info(`[server] ->🚀 started on ${process.env.PORT}`)
-  log.info(`[${process.env.NODE_ENV}] -> http://localhost:${process.env.PORT}`)
+  console.info(`[server] ->🚀 started on ${process.env.PORT}`)
+  console.info(`[${process.env.NODE_ENV}] -> http://localhost:${process.env.PORT}`)
 })

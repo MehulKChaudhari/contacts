@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 /**
  * This function creates connection to the database with given options.
  * */
-export const makeConnection = async () => {
+const makeConnection = async () => {
   await mongoose
     .connect(
       process.env.NODE_ENV === 'development'
@@ -27,3 +27,5 @@ export const makeConnection = async () => {
       )
     })
 }
+
+module.exports = makeConnection

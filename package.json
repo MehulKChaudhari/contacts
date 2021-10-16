@@ -7,8 +7,7 @@
   "author": "Mehul Kiran Chaudhari <chaudharimehul2001@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev src/index.js",
-    "build": "yarn tsc",
+    "dev": "nodemon src/index.js",
     "format": "prettier --write src/**/*.js{,x}"
   },
   "dependencies": {
@@ -18,6 +17,7 @@
     "mongoose": "^6.0.11"
   },
   "devDependencies": {
+    "nodemon": "^2.0.13",
     "prettier": "^2.3.2"
   }
 }
