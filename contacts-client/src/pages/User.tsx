@@ -8,11 +8,13 @@ import {
   Tr,
   Th,
   Td,
-} from "@chakra-ui/react";
-import React from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { BsFillPencilFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+  Badge,
+} from '@chakra-ui/react'
+import React from 'react'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { BsFillPencilFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import { BadgeColor } from '../components/Card/Card'
 
 const User = (): JSX.Element => {
   return (
@@ -22,21 +24,21 @@ const User = (): JSX.Element => {
         alignItems="center"
         alignSelf="center"
         pt={10}
-        width='100%'
+        width="100%"
       >
         <Box
           background="white"
-          border={"1px solid #096ce6"}
+          border={'1px solid #096ce6'}
           boxShadow="lg"
           p="6"
           rounded="md"
           w={[500, 700]}
-          height={["100%", "500px"]}
+          height={['100%', '500px']}
           alignContent="center"
         >
           <Stack spacing={5}>
             <Flex>
-              <Link to={"/"}>
+              <Link to={'/'}>
                 <AiOutlineArrowLeft size="2rem" />
               </Link>
             </Flex>
@@ -80,7 +82,7 @@ const User = (): JSX.Element => {
                       Tag:
                     </Th>
                     <Td outline="none" border="none">
-                      tag
+                      <Badge color={'green'}>Home</Badge>
                     </Td>
                   </Tr>
                 </Tbody>
@@ -91,14 +93,14 @@ const User = (): JSX.Element => {
                 Delete
               </Button>
               <Button color="#096ce6" variant="solid" size="lg">
-                <BsFillPencilFill style={{ marginRight: "0.5rem" }} /> Edit
+                <BsFillPencilFill style={{ marginRight: '0.5rem' }} /> Edit
               </Button>
             </Flex>
           </Stack>
         </Box>
       </Flex>
     </>
-  );
-};
+  )
+}
 
-export default User;
+export default User
