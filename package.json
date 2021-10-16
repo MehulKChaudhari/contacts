@@ -1,0 +1,9 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "This is backend of the contacts app",
+  "main": "index.js",
+  "repository": "https://github.com/MehulKChaudhari/contacts.git",
+  "author": "Mehul Kiran Chaudhari <chaudharimehul2001@gmail.com>",
+  "private": true
+}
