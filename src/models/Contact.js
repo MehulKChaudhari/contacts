@@ -22,6 +22,7 @@ const ContactSchema = mongoose.Schema(
     },
     tag: {
       type: String,
+      default: 'Other',
     },
   },
   {

@@ -24,12 +24,13 @@ import { getContactDetails } from '../services/axiosService'
 import { deleteContactUsingId } from '../services/axiosService'
 
 const User = (): JSX.Element => {
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [contactInfo, setContactInfo] = useState<ContactTypes>()
   const { userid } = useParams()
 
   useEffect(() => {
     ;(async () => {
+      setIsLoading(true)
       try {
         const response = await getContactDetails(userid)
         if (response) {
@@ -42,6 +43,8 @@ const User = (): JSX.Element => {
       }
     })()
   }, [userid])
+
+  //Delete contact handler
   const deleteContact = async () => {
     const response = await deleteContactUsingId(userid)
     console.log('deleted', response)

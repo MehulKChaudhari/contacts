@@ -55,9 +55,8 @@ export function DeleteContact({
             <AlertDialogFooter>
               <Button
                 ref={cancelRef}
-                background="gray"
+                colorScheme="teal"
                 onClick={onClose}
-                _hover={{ bg: '#096ce6' }}
               >
                 Cancel
               </Button>

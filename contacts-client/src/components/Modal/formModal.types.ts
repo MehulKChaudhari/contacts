@@ -3,5 +3,4 @@ export interface InitialFormValues {
     lastName: string
     email: string
     phoneNo: string
-    tag:string
   }

@@ -9,9 +9,11 @@ const getContacts = async (req, res) => {
   }
 }
 const getContactDetails = async (req, res) => {
-  const userId = req.params.userid; 
+  const userId = req.params.userid
   try {
-    const data = await Contact.find({_id: userId})
+    const data = await Contact.findOne({ _id: userId }).select(
+      ' _id firstName lastName email phoneNo tag'
+    )
     res.status(200).json(data)
   } catch (error) {
     res.json({ error_message: error.message })
