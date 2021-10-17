@@ -10,13 +10,33 @@ import {
   Td,
   Badge,
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { BadgeColor } from '../components/Card/Card'
+import { ContactTypes } from '../components/ContactList/ContactList.types'
+import { getContactDetails } from '../services/axiosService'
 
 const User = (): JSX.Element => {
+  const [contactInfo, setContactInfo] = useState<ContactTypes>()
+  const { userid } = useParams();
+  
+   const getInfo = async (userid: string | undefined) => {
+    const response = await getContactDetails(userid)
+    setContactInfo(response)
+    console.log('response', response)
+  }
+useEffect(() => {
+  getInfo(userid);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
+
+  console.log('contact', contactInfo)
+
+
+
   return (
     <>
       <Flex
@@ -50,7 +70,7 @@ const User = (): JSX.Element => {
                       FirstName:
                     </Th>
                     <Td outline="none" border="none">
-                      Mehul
+                      {contactInfo?.firstName}
                     </Td>
                   </Tr>
                   <Tr>
@@ -58,7 +78,7 @@ const User = (): JSX.Element => {
                       LastName:
                     </Th>
                     <Td outline="none" border="none">
-                      Chaudhari
+                      {contactInfo?.lastName}
                     </Td>
                   </Tr>
                   <Tr>
@@ -66,7 +86,7 @@ const User = (): JSX.Element => {
                       Email:
                     </Th>
                     <Td outline="none" border="none">
-                      MehulChaduahri@gmail.com
+                      {contactInfo?.email}
                     </Td>
                   </Tr>
                   <Tr>
@@ -74,7 +94,7 @@ const User = (): JSX.Element => {
                       Contact Number:
                     </Th>
                     <Td outline="none" border="none">
-                      9184858281
+                      {contactInfo?.phoneNo}
                     </Td>
                   </Tr>
                   <Tr>
@@ -82,7 +102,17 @@ const User = (): JSX.Element => {
                       Tag:
                     </Th>
                     <Td outline="none" border="none">
-                      <Badge color={'green'}>Home</Badge>
+                      <Badge
+                        colorScheme={
+                          BadgeColor[
+                            contactInfo?.tag === undefined
+                              ? 'Other'
+                              : contactInfo?.tag
+                          ]
+                        }
+                      >
+                        {contactInfo?.tag}
+                      </Badge>
                     </Td>
                   </Tr>
                 </Tbody>

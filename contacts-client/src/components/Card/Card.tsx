@@ -5,7 +5,7 @@ import { FaRegUserCircle, FaArrowCircleRight } from 'react-icons/fa'
 
 export const BadgeColor = {
   Home: 'green',
-  Work: 'other',
+  Work: 'yellow',
   Other: 'red',
 }
 export const Card = ({
@@ -19,7 +19,7 @@ export const Card = ({
       borderRadius={'8px'}
       overflow={'hidden'}
       marginTop={'2rem'}
-      width={['90%', '50%']}
+      width={['', '800px']}
       alignSelf="center"
       background="white"
       border={'1.5px solid #096ce6'}

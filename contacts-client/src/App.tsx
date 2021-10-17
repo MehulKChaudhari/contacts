@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<ContactList />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/user/:userid" element={<User />} />
       </Routes>
     </>
   );
