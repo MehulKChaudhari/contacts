@@ -15,25 +15,32 @@ import {
 import React, { useState } from 'react'
 import { Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { InitialFormValues } from './formModal.types'
+import { addContact } from '../../services/axiosService'
 
-const initialFormValues: InitialFormValues = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phoneNo: '',
-  tag: '',
-}
 export default function AddContactModal(): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [formValues, setFormValues] =
-    useState<InitialFormValues>(initialFormValues)
-
-  function submitHandler(): void {
-    console.log('clicked')
+  const [radioValue, setRadioValue] = useState('Other')
+  const [formInputs, setFormInputs] = useState<InitialFormValues>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNo: '',
+  })
+  const handleInputs = (e: any) => {
+    setFormInputs((inputs) => {
+      return {
+        ...inputs,
+        [e.target.name]: e.target.value,
+      }
+    })
   }
+  console.log('radio', radioValue)
+  console.log('form', formInputs)
 
-  function changeHandler(e: { firstName: any; value: any }) {
-    console.log(e.firstName, e.value)
+  const handleSubmit = () => {
+    const response = addContact(formInputs)
+    onClose()
+    return response
   }
 
   return (
@@ -52,9 +59,10 @@ export default function AddContactModal(): JSX.Element {
               <FormLabel>First name</FormLabel>
               <Input
                 placeholder="First name"
-                // onChange={changeHandler}
                 name="firstName"
-                value={formValues.firstName}
+                value={formInputs.firstName}
+                onChange={handleInputs}
+                type="text"
               />
             </FormControl>
 
@@ -62,52 +70,57 @@ export default function AddContactModal(): JSX.Element {
               <FormLabel>Last name</FormLabel>
               <Input
                 placeholder="Last name"
-                // onChange={changeHandler}
                 name="lastName"
-                value={formValues.lastName}
+                value={formInputs.lastName}
+                onChange={handleInputs}
+                type="text"
               />
             </FormControl>
             <FormControl mt={4}>
               <FormLabel>Email</FormLabel>
               <Input
                 placeholder="Email"
-                // onChange={changeHandler}
                 name="email"
-                value={formValues.email}
+                value={formInputs.email}
+                onChange={handleInputs}
+                type="email"
               />
             </FormControl>
             <FormControl mt={4}>
               <FormLabel>Phone Number</FormLabel>
               <Input
                 placeholder="Phone Number"
-                // onChange={changeHandler}
                 name="phoneNo"
-                value={formValues.phoneNo}
+                value={formInputs.phoneNo}
+                onChange={handleInputs}
+                type="number"
               />
             </FormControl>
-            <FormControl mt={4}>
+            {/* <FormControl mt={4}>
               <FormLabel>Tag</FormLabel>
               <RadioGroup
-                // onChange={changeHandler}
-                name="fav_language"
-                value="JavaScript"
+                onChange={setFormInputs}
+                name="tag"
+                value={formInputs.tag}
+                defaultValue="Other"
               >
                 <Stack direction="row">
-                  <Radio value="1">Home</Radio>
-                  <Radio value="2">Work</Radio>
-                  <Radio value="3">Other</Radio>
+                  <Radio name="home" value="Home">
+                    Home
+                  </Radio>
+                  <Radio name="work" value="Work">
+                    Work
+                  </Radio>
+                  <Radio name="other" value="Other">
+                    Other
+                  </Radio>
                 </Stack>
               </RadioGroup>
-            </FormControl>
+            </FormControl> */}
           </ModalBody>
 
           <ModalFooter>
-            <Button
-              colorScheme="blue"
-              mr={3}
-              onClick={submitHandler}
-              type="submit"
-            >
+            <Button color="#096ce6" mr={3} type="submit" onClick={handleSubmit}>
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
