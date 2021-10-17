@@ -14,3 +14,7 @@ export const getContacts = async () => {
     const response = await apiClient.get<ContactTypes>(`/get-contact-details/${userid}`)
     return response.data
   }
+  export const deleteContactUsingId = async (userid: any) =>{
+    const response = await apiClient.post<any>('/delete-contact')
+    return response.data;
+  }

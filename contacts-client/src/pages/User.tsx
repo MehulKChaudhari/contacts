@@ -17,27 +17,35 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import { DeleteContact } from '../components/Alert/deleteAlert'
 import { BadgeColor } from '../components/Card/Card'
 import { ContactTypes } from '../components/ContactList/ContactList.types'
 import { getContactDetails } from '../services/axiosService'
+import { deleteContactUsingId } from '../services/axiosService'
 
 const User = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [contactInfo, setContactInfo] = useState<ContactTypes>()
   const { userid } = useParams()
 
-  const getInfo = async (userid: string | undefined) => {
-    const response = await getContactDetails(userid)
-    setTimeout(() => {
-      setContactInfo(response)
-      setIsLoading(false)
-    }, 1500)
-    console.log('response', response)
-  }
   useEffect(() => {
-    getInfo(userid)
+    ;(async () => {
+      try {
+        const response = await getContactDetails(userid)
+        if (response) {
+          setContactInfo(response)
+          setIsLoading(false)
+          console.log('res', response)
+        }
+      } catch (error: any) {
+        console.log('Error:', error.response)
+      }
+    })()
   }, [userid])
-  console.log('contact', contactInfo)
+  const deleteContact = async () => {
+    const response = await deleteContactUsingId(userid)
+    console.log('deleted', response)
+  }
 
   return isLoading ? (
     <Center minH="80vh">
@@ -125,9 +133,7 @@ const User = (): JSX.Element => {
               </Table>
             </Flex>
             <Flex justifyContent="space-between" p={4}>
-              <Button colorScheme="red" variant="outline">
-                Delete
-              </Button>
+              <DeleteContact onClick={deleteContact} />
               <Button color="#096ce6" variant="solid" size="lg">
                 <BsFillPencilFill style={{ marginRight: '0.5rem' }} /> Edit
               </Button>

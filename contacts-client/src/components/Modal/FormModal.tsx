@@ -23,7 +23,7 @@ const initialFormValues: InitialFormValues = {
   phoneNo: '',
   tag: '',
 }
-export default function InitialFocus(): JSX.Element {
+export default function AddContactModal(): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [formValues, setFormValues] =
     useState<InitialFormValues>(initialFormValues)
