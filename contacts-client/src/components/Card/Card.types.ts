@@ -1,9 +1,11 @@
 export interface ICardPropsType {
-  name: string;
-  tag: "Home" | "Work" | "Other" ;
+  firstName: string
+  lastName: string
+  tag: 'Home' | 'Work' | 'Other'
+  id: any
 }
 
-export interface IBadgeColor{
+export interface IBadgeColor {
   Home: string
   Work: string
   Other: string

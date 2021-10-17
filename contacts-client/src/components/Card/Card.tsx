@@ -8,7 +8,12 @@ export const BadgeColor = {
   Work: 'other',
   Other: 'red',
 }
-export const Card = ({ name, tag }: ICardPropsType): JSX.Element => {
+export const Card = ({
+  firstName,
+  lastName,
+  tag,
+  id,
+}: ICardPropsType): JSX.Element => {
   return (
     <Link
       borderRadius={'8px'}
@@ -21,13 +26,16 @@ export const Card = ({ name, tag }: ICardPropsType): JSX.Element => {
       padding={['0.8rem', '1.5rem']}
       alignItems={'center'}
       _hover={{ shadow: 'md' }}
-      href="/user"
+      href={`/user/${id}`}
     >
       <HStack justifyContent={'space-around'}>
         <Flex>
           <FaRegUserCircle color="black" size="1.5rem" />
           <Heading as="h3" size="md" ml={2}>
-            {name}
+            {firstName}
+          </Heading>
+          <Heading as="h3" size="md" ml={2}>
+            {lastName}
           </Heading>
         </Flex>
         <Flex>

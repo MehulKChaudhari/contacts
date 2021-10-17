@@ -10,19 +10,14 @@ const addContacts = async (req, res) => {
       phoneNo: phoneNo,
       tag: tag,
     })
-    await contact.save((err) => {
-      if (err) {
-        return res.status(500).json({
-          msg: 'Something went wrong while saving the contact',
-        })
-      }
-    })
+    await contact.save()
     return res.status(200).json({
       msg: `Contact saved successfully`,
       contact: {
         email: contact.email,
         firstName: contact.firstName,
         lastName: contact.lastName,
+        tag:contact.tag,
         userId: contact._id,
       },
     })

@@ -20,6 +20,9 @@ const ContactSchema = mongoose.Schema(
     phoneNo: {
       type: Number,
     },
+    tag: {
+      type: String,
+    },
   },
   {
     timestamps: true,
