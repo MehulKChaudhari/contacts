@@ -1,5 +1,4 @@
 const Contact = require('../models/Contact')
-const extend = require('lodash/extend')
 
 const updateContact = async (req, res) => {
   const { userId, firstName, lastName, email, phoneNo, tag } = req.body
