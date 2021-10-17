@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "format": "prettier --write src/**/*.js{,x}"
   },
   "dependencies": {
