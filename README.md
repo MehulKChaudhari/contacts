@@ -20,4 +20,5 @@
 3. TypeScript
 4. Expressjs
 5. MongoDb + Mongoose(ORM)
-6. Netlify
+6. Netlify for deploying frontend
+7. Railway.app for deploying backend
