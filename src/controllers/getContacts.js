@@ -8,5 +8,14 @@ const getContacts = async (req, res) => {
     res.json({ error_message: error.message })
   }
 }
+const getContactDetails = async (req, res) => {
+  const userId = req.params.userid; 
+  try {
+    const data = await Contact.find({_id: userId})
+    res.status(200).json(data)
+  } catch (error) {
+    res.json({ error_message: error.message })
+  }
+}
 
-module.exports = { getContacts }
+module.exports = { getContacts, getContactDetails }
