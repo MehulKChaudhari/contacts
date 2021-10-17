@@ -1,6 +1,6 @@
 import React from 'react'
-import { Flex, Heading } from '@chakra-ui/react'
-import InitialFocus from '../Modal/FormModal'
+import { Flex, Heading, Link } from '@chakra-ui/react'
+import AddContactModal from '../Modal/FormModal'
 
 export const Navbar = (): JSX.Element => {
   return (
@@ -23,12 +23,14 @@ export const Navbar = (): JSX.Element => {
         justifyContent={'space-between'}
       >
         <Flex>
-          <Heading as="h1" size="lg" color="#262221">
-            Contacts
-          </Heading>
+          <Link to={'/'}>
+            <Heading as="h1" size="lg" color="#262221">
+              Contacts
+            </Heading>
+          </Link>
         </Flex>
         <Flex>
-          <InitialFocus />
+          <AddContactModal />
         </Flex>
       </Flex>
     </Flex>

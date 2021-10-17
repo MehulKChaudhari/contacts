@@ -9,6 +9,8 @@ import {
   Th,
   Td,
   Badge,
+  Center,
+  Spinner,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
@@ -20,24 +22,28 @@ import { ContactTypes } from '../components/ContactList/ContactList.types'
 import { getContactDetails } from '../services/axiosService'
 
 const User = (): JSX.Element => {
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [contactInfo, setContactInfo] = useState<ContactTypes>()
-  const { userid } = useParams();
-  
-   const getInfo = async (userid: string | undefined) => {
+  const { userid } = useParams()
+
+  const getInfo = async (userid: string | undefined) => {
     const response = await getContactDetails(userid)
-    setContactInfo(response)
+    setTimeout(() => {
+      setContactInfo(response)
+      setIsLoading(false)
+    }, 1500)
     console.log('response', response)
   }
-useEffect(() => {
-  getInfo(userid);
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
-
+  useEffect(() => {
+    getInfo(userid)
+  }, [userid])
   console.log('contact', contactInfo)
 
-
-
-  return (
+  return isLoading ? (
+    <Center minH="80vh">
+      <Spinner />
+    </Center>
+  ) : (
     <>
       <Flex
         justifyContent="center"
