@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 
 import React, { useState, useRef, LegacyRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export function DeleteContact({
   onClick,
@@ -18,10 +19,12 @@ export function DeleteContact({
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const onClose = () => setIsOpen(false)
   const cancelRef: LegacyRef<HTMLButtonElement> | null = useRef(null)
+  const navigate = useNavigate();
 
   const SubmitHandler = () => {
     onClose()
     onClick()
+    navigate('/');
   }
 
   return (
