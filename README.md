@@ -1,7 +1,9 @@
 # Contacts-app
  This repository has both front-end and backend of the contacts app. 
 
-#### It is a web based contacts directory which allows user to add contact details give them a tag, and delete it if needed. 
+#### It is a web based contacts directory which allows user to add contact details give them a tag, and delete it if needed.
+
+[![Backend deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fexamples%2Ftree%2Fmaster%2Fexamples%2Fexpressjs) [![Netlify Status](https://api.netlify.com/api/v1/badges/4b425825-0357-4d92-ba2d-2837abe6905b/deploy-status)](https://app.netlify.com/sites/contacts-app-mehul/deploys)
 
 
 #### App Link: https://contacts-app-mehul.netlify.app/
