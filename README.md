@@ -46,7 +46,7 @@ git clone https://github.com/<YOUR-GITHUB-USERNAME>/contacts.git
 Navigate to project directory
 ```bash
 cd contacts
-// Then for front-end
+//for front-end
 cd contacts-client
 ```
 
@@ -62,5 +62,5 @@ Your application setup is successfully completed!
 ```bash
 # development
 $ yarn start //for front-end
-$ yarn dev // for backend 
+$ yarn dev //for backend 
 ```
