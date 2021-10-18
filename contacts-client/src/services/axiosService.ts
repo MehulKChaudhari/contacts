@@ -3,7 +3,7 @@ import { ContactTypes } from '../components/ContactList/ContactList.types'
 import { InitialFormValues } from '../components/Modal/formModal.types'
 
 const apiClient = axios.create({
-  baseURL: `http://localhost:5000/`,
+  baseURL: `https://contacts-production-f5d9.up.railway.app/`,
 })
 
 export const getContacts = async () => {
