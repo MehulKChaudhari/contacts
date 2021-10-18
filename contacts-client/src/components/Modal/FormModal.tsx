@@ -39,7 +39,6 @@ export default function AddContactModal(): JSX.Element {
 
   const handleSubmit = () => {
     const response = addContact(formInputs)
-    window.location.reload()
     onClose()
     return response
   }
