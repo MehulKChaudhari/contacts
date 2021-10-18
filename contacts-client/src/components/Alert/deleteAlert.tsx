@@ -25,6 +25,7 @@ export function DeleteContact({
     onClose()
     onClick()
     navigate('/');
+    window.location.reload()
   }
 
   return (
